@@ -11,7 +11,7 @@ private:
     string disease;
 
 public:
-    Patient();                                                          // FIX: default constructor
+    Patient();                                                          
     Patient(int id, const string& name, int age, const string& disease);
 
     void inputFromUser();
