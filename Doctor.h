@@ -10,8 +10,11 @@ private:
     string specialization;
 
 public:
+    Doctor();                                                           
     Doctor(int id, const string& name, const string& specialization);
-    void addDoctor() override;
+
+    void inputFromUser();
+    void addDoctor();
     void display() const override;
     void displayDoctors();
 };
