@@ -1,33 +1,30 @@
 #include <iostream>
 #include <vector>
-#include "Person.h" 
+#include "Person.h"
 #include "Patient.h"
 #include "Doctor.h"
 #include "Billing.h"
 #include "Appointment.h"
 #include "Authentication.h"
-using namespace std; 
+using namespace std;
 
 int main() {
     Authentication auth;
 
+    // FIX: removed dangling catch with no matching try block.
+    // login() does not throw — no try/catch needed here.
     if (!auth.login()) {
         cout << "Access Denied!\n";
         return 0;
     }
-        catch (const exception& e) {
-        cerr << "Login error: " << e.what() << endl;
-        return 1;
-    }
 
-
+    // FIX: use default constructors (now defined) instead of parameterized ones
     Patient patient;
     Doctor doctor;
     Billing billing;
     Appointment appointment;
 
     int choice;
-
     vector<Person*> persons;
 
     do {
@@ -39,11 +36,12 @@ int main() {
         cout << "5. Generate Bill\n";
         cout << "6. Book Appointment\n";
         cout << "7. Display Appointments\n";
-        cout << "8. Exit\n";
+        cout << "8. Display All (Polymorphic)\n";  // FIX: was unreachable case 10
+        cout << "9. Exit\n";
         cout << "Enter your choice: ";
         cin >> choice;
 
-        switch(choice) {
+        switch (choice) {
             case 1: {
                 Patient* p = new Patient(0, "", 0, "");
                 try {
@@ -88,24 +86,24 @@ int main() {
                 appointment.displayAppointments();
                 break;
 
-            case 10: {  // new option
+            case 8: {
+                // FIX: moved from unreachable case 10 to case 8, exit is now case 9
                 cout << "\n--- Polymorphic List ---\n";
                 for (const auto& p : persons) {
-                    p->display();   // virtual call
+                    p->display();
                 }
                 break;
             }
 
-            case 8:
-            cout << "Exiting system...\n";
+            case 9:
+                cout << "Exiting system...\n";
                 break;
 
             default:
                 cout << "Invalid choice!\n";
         }
-    } while(choice != 8);
+    } while (choice != 9);
 
-    // cleanup
     for (auto* p : persons) {
         delete p;
     }
