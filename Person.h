@@ -11,16 +11,17 @@ protected:
     string name;
 
 public:
+    Person();                                   
     Person(int id, const string& name);
     virtual ~Person() = default;
 
-    // abstract methods (pure virtual)
+    
     virtual void display() const = 0;
-    virtual void inputFromUser() = 0;
 
-    // common getters
+    
     int getId() const { return id; }
     const string& getName() const { return name; }
+    string toFileString() const { return ""; }  
 };
 
 #endif
