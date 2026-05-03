@@ -11,8 +11,11 @@ private:
     string disease;
 
 public:
+    Patient();                                                          // FIX: default constructor
     Patient(int id, const string& name, int age, const string& disease);
-    void addPatient() override;
+
+    void inputFromUser();
+    void addPatient();
     void display() const override;
     void displayPatients();
 };
