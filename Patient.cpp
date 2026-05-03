@@ -4,7 +4,7 @@
 #include "Patient.h"
 using namespace std;
 
-Patient::Patient() : Person(0, ""), age(0), disease("") {}   // FIX: default constructor
+Patient::Patient() : Person(0, ""), age(0), disease("") {}   
 
 Patient::Patient(int id, const string& name, int age, const string& disease)
     : Person(id, name), age(age), disease(disease) {}
