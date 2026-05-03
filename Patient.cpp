@@ -4,10 +4,10 @@
 #include "Patient.h"
 using namespace std;
 
-void Patient::addPatient() {
-    int id, age;
-    string name, disease;
+Patient::Patient(int id, const string& name, int age, const string& disease)
+    : Person(id, name), age(age), disease(disease) {}
 
+void Patient::inputFromUser() {
     cout << "Enter Patient ID: ";
     cin >> id;
     cin.ignore();
@@ -21,22 +21,40 @@ void Patient::addPatient() {
 
     cout << "Enter Disease: ";
     getline(cin, disease);
+}
+
+void Patient::addPatient() {
+    inputFromUser();
 
     ofstream file("data/patient.txt", ios::app);
+    if (!file.is_open()) {
+        throw runtime_error("Cannot open patient file.");
+    }
+
     file << id << "|" << name << "|" << age << "|" << disease << endl;
     file.close();
 
     cout << "Patient added successfully!\n";
 }
 
+void Patient::display() const {
+    cout << "ID: " << id
+         << ", Name: " << name
+         << ", Age: " << age
+         << ", Disease: " << disease << endl;
+}
+
 void Patient::displayPatients() {
     ifstream file("data/patient.txt");
-    string record;
-
-    cout << "\n--- Patient Records ---\n";
-    while(getline(file, record)) {
-        cout << record << endl;
+    if (!file.is_open()) {
+        cout << "Error: Cannot open patient file.\n";
+        return;
     }
 
+    string record;
+    cout << "\n--- Patient Records ---\n";
+    while (getline(file, record)) {
+        cout << record << endl;
+    }
     file.close();
 }
