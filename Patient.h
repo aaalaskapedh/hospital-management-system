@@ -1,9 +1,19 @@
 #ifndef PATIENT_H
 #define PATIENT_H
 
-class Patient {
+#include "Person.h"
+#include <string>
+using namespace std;
+
+class Patient : public Person {
+private:
+    int age;
+    string disease;
+
 public:
-    void addPatient();
+    Patient(int id, const string& name, int age, const string& disease);
+    void addPatient() override;
+    void display() const override;
     void displayPatients();
 };
 
