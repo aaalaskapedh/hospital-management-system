@@ -12,7 +12,7 @@ int main() {
     Authentication auth;
 
 
-    //row — no
+
     if (!auth.login()) {
         cout << "Access Denied!\n";
         return 0;
