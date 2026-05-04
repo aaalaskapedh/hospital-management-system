@@ -2,9 +2,7 @@
 #include <fstream>
 #include <string>
 #include "Doctor.h"
-using namespace std;
-
-Doctor::Doctor() : Person(0, ""), specialization("") {}   
+using namespace std;  
 
 Doctor::Doctor(int id, const string& name, const string& specialization)
     : Person(id, name), specialization(specialization) {}
