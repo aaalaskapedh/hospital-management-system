@@ -36,7 +36,7 @@ int main() {
         cout << "5. Generate Bill\n";
         cout << "6. Book Appointment\n";
         cout << "7. Display Appointments\n";
-        cout << "8. Display All (Polymorphic)\n";  // FIX: was unreachable case 10
+        cout << "8. Display All (Polymorphic)\n";  
         cout << "9. Exit\n";
         cout << "Enter your choice: ";
         cin >> choice;
