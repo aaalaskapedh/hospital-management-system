@@ -12,7 +12,7 @@ int main() {
     Authentication auth;
 
 
-    //row — no try/catch needed here.
+    //row — no try/catch need
     if (!auth.login()) {
         cout << "Access Denied!\n";
         return 0;
