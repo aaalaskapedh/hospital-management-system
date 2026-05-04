@@ -11,7 +11,7 @@ using namespace std;
 int main() {
     Authentication auth;
 
-    // FIX: removed dangling catch with no matching try block.
+    // FIX: removed dangling catch with no matblock.
     // login() does not throw — no try/catch needed here.
     if (!auth.login()) {
         cout << "Access Denied!\n";
