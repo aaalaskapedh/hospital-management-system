@@ -17,9 +17,9 @@ public:
 
     
     virtual void display() const = 0;
+ 
 
-    
-    int getId() const { return id; }
+ int getId() const { return id; }
     const string& getName() const { return name; }
     string toFileString() const { return ""; }  
 };
