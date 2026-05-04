@@ -18,7 +18,7 @@ int main() {
         return 0;
     }
 
-    // FIX: use default constructors (now defined) instead of parameterized ones
+    
     Patient patient;
     Doctor doctor;
     Billing billing;
