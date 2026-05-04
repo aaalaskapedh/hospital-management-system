@@ -11,7 +11,7 @@ using namespace std;
 int main() {
     Authentication auth;
 
-    // FIX: removed ck.
+
     //row — no try/catch needed here.
     if (!auth.login()) {
         cout << "Access Denied!\n";
