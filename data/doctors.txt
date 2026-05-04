@@ -1,2 +1,2 @@
-25180|Aakarshit|AI/ML
-102|saurabh|AIDS
+180|Harshit|Core
+102|Sanskriti|Core
