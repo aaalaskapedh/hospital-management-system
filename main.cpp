@@ -12,7 +12,7 @@ int main() {
     Authentication auth;
 
     // FIX: removed ck.
-    // login() does not throw — no try/catch needed here.
+    //row — no try/catch needed here.
     if (!auth.login()) {
         cout << "Access Denied!\n";
         return 0;
