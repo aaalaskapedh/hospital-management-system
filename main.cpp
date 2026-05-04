@@ -87,7 +87,7 @@ int main() {
                 break;
 
             case 8: {
-                // FIX: moved from unreachable case 10 to case 8, exit is now case 9
+        
                 cout << "\n--- Polymorphic List ---\n";
                 for (const auto& p : persons) {
                     p->display();
